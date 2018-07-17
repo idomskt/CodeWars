@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Codewars</h1>
+
+
+    <script>
+    function squareDigits(num){
+        //may the code be with you
+        var n = num.toString();
+        var split = n.split('');
+        var stle = n.length;
+        var newArr = [];
+        
+        for (var i = 0; i < stle; i++) {
+            var cal = Math.pow(split[i], 2);
+            var calStr = cal.toString();
+            newArr += calStr;
+        }
+        console.log(parseInt(newArr));
+    }
+    squareDigits(93);
+
+    var uniqueInOrder=function(iterable){
+    //your code here - remember iterable can be a string or an array
+        var string = iterable.toString();
+        var strLength = string.length;
+        var charArray = string.split(''); //convert the string to array
+        var newArr = [];
+       
+
+        for (var i = 0; i < strLength; i++){
+                                    
+            if (charArray[i] === charArray[i + 1]){
+                delete charArray[i];
+            } else {
+                newArr += charArray[i];
+            }
+        }
+        console.log(newArr.split(''));
+    }
+
+uniqueInOrder('hgnf98877');
+    
+    </script>
+</body>
+</html>
