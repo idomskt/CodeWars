@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CodeWars</title>
+</head>
+<body>
+    <h1>CodeWars</h1>
+    <h2>https://www.codewars.com/kata/563f037412e5ada593000114/train/javascript</h2>
+    <h3>It will take <span id="invest-years"></span> years to get to $<span id="desired-amount"></span></h3>
+    <script>
+        function calculateYears(principal, interest, tax, desired) {
+            var calcInterest = (principal * interest);
+            var afterTax = (calcInterest * tax);
+            var totalProfit = calcInterest - afterTax;
+            var newPrincipal = principal + totalProfit;
+            var years = 1;
+            for(var i = 0; newPrincipal < desired; i++) {
+                        var newPrincipalInterest = newPrincipal * interest;
+                        var taxNewPrincipal = newPrincipalInterest * tax;
+                        newPrincipal += (newPrincipalInterest - taxNewPrincipal);
+                        console.log(newPrincipal);
+                        years++;
+            }
+            var printYears = document.getElementById('invest-years');
+            printYears.innerText = years;
+            var printDesired = document.getElementById('desired-amount');
+            printDesired.innerText = desired;
+
+        }
+        calculateYears(1000, 0.05, 0.18, 1100);
+    
+    </script>
+
+    
+</body>
+</html>

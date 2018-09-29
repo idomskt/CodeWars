@@ -8,9 +8,55 @@
 </head>
 <body>
     <h1>Codewars</h1>
+    <h1>Codewars</h1>
 
 
     <script>
+
+        // https://www.codewars.com/kata/563f037412e5ada593000114/train/javascript
+        function calculateYears(principal, interest, tax, desired) {
+            var calcInterest = (principal * interest);
+            var afterTax = (calcInterest * tax);
+            var totalProfit = calcInterest - afterTax;
+            var newPrincipal = principal + totalProfit;
+            var years = 1;
+            for(var i = 0; newPrincipal < desired; i++) {
+                        var newPrincipalInterest = newPrincipal * interest;
+                        var taxNewPrincipal = newPrincipalInterest * tax;
+                        newPrincipal += (newPrincipalInterest - taxNewPrincipal);
+                        console.log(newPrincipal);
+                        years++;
+            }
+            var printYears = document.getElementById('invest-years');
+            printYears.innerText = years;
+            var printDesired = document.getElementById('desired-amount');
+            printDesired.innerText = desired;
+
+        }
+        calculateYears(1000, 0.05, 0.18, 1100);
+
+
+
+        // https://www.codewars.com/kata/56541980fa08ab47a0000040/train/javascript
+        function printerError(s) {
+            // your code
+            var aTom = ['a','b','c','d','e','f','g','h','i','j','k','l','m'];
+            var nToz = ['n','o','p','q','r','s','t','u','v','z','w','x','y'];
+            var errorNum = [];
+            var strToArray = s.split('');
+            var letterCount = s.length;
+
+            for(var i = 0; i < letterCount; i++){
+
+                if(nToz.includes(strToArray[i])){
+                    errorNum += strToArray[i];
+                    console.log('error');
+                }
+            }
+            console.log(errorNum.length + '/' + s.length);
+        }
+        printerError('abcdefghijklmnopqrstuvzwxy');
+        
     function squareDigits(num){
         //may the code be with you
         var n = num.toString();
